@@ -27,10 +27,7 @@ fn longest_common_substring_length(s1: &str, s2: &str) -> usize {
 /// Returns the maximum length of the longest common substring for each pair of strings
 
 #[pyfunction]
-pub fn longest_common_substring_max(
-    s1: Vec<String>,
-    s2: Vec<Vec<String>>,
-) -> Vec<usize> {
+pub fn longest_common_substring_max(s1: Vec<String>, s2: Vec<Vec<String>>) -> Vec<usize> {
     let mut results = Vec::new();
     for (i, str1) in s1.iter().enumerate() {
         if i < s2.len() {

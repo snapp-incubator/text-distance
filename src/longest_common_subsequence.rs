@@ -1,6 +1,5 @@
 use pyo3::prelude::*;
 
-
 #[pyfunction]
 fn lcsseq(s1: &str, s2: &str) -> String {
     let chars1: Vec<char> = s1.chars().collect();
@@ -42,10 +41,7 @@ fn lcsseq(s1: &str, s2: &str) -> String {
 }
 
 #[pyfunction]
-pub fn longest_common_subsequence_max(
-    s1: Vec<String>,
-    s2: Vec<Vec<String>>,
-) -> Vec<usize> {
+pub fn longest_common_subsequence_max(s1: Vec<String>, s2: Vec<Vec<String>>) -> Vec<usize> {
     let mut results = Vec::new();
 
     for (i, query) in s1.iter().enumerate() {

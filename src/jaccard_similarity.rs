@@ -1,11 +1,9 @@
-use std::collections::HashSet;
 use pyo3::prelude::*;
+use std::collections::HashSet;
 
 // Function to generate bigrams from a string
 fn generate_bigrams(text: &str) -> HashSet<(char, char)> {
-    text.chars()
-        .zip(text.chars().skip(1))
-        .collect()
+    text.chars().zip(text.chars().skip(1)).collect()
 }
 
 // Function to calculate Jaccard similarity between two sets of bigrams
@@ -22,10 +20,7 @@ fn jaccard_similarity_bigrams(set1: &HashSet<(char, char)>, set2: &HashSet<(char
 
 // Function to calculate Jaccard similarities for corresponding indices
 #[pyfunction]
-pub fn jaccard_similarities(
-    queries: Vec<String>,
-    synonym_sets: Vec<Vec<String>>,
-) -> Vec<f64> {
+pub fn jaccard_similarities(queries: Vec<String>, synonym_sets: Vec<Vec<String>>) -> Vec<f64> {
     queries
         .iter()
         .zip(synonym_sets.iter()) // Match corresponding indices

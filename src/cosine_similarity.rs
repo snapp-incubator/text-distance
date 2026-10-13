@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use pyo3::prelude::*;
+use std::collections::HashMap;
 
 // Function to calculate term frequency (TF) for a string
 fn calculate_tf(text: &str) -> HashMap<String, usize> {
@@ -36,10 +36,7 @@ fn cosine_similarity_tf(tf1: &HashMap<String, usize>, tf2: &HashMap<String, usiz
 
 // Function to calculate cosine similarities between corresponding indices
 #[pyfunction]
-pub fn cosine_similarities(
-    queries: Vec<String>,
-    synonym_sets: Vec<Vec<String>>,
-) -> Vec<f64> {
+pub fn cosine_similarities(queries: Vec<String>, synonym_sets: Vec<Vec<String>>) -> Vec<f64> {
     queries
         .iter()
         .zip(synonym_sets.iter()) // Match corresponding indices
